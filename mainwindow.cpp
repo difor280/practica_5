@@ -52,10 +52,6 @@ void MainWindow::MemDinamic()
             esenas->addItem(blocks[f][c]);
         }
     }
-
-
-
-
 }
 
 

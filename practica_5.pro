@@ -12,11 +12,13 @@ SOURCES += \
     bloques.cpp \
     main.cpp \
     mainwindow.cpp \
+    personaje.cpp \
     ubicacion.cpp
 
 HEADERS += \
     bloques.h \
     mainwindow.h \
+    personaje.h \
     ubicacion.h
 
 FORMS += \
