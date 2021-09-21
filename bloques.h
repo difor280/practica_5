@@ -3,14 +3,17 @@
 
 #include <QObject>
 #include <QGraphicsPixmapItem>
+#include "string.h"
 
 class bloques:public QObject, public QGraphicsPixmapItem
 {
 
 public:
-    bloques();    
+    bloques();
+    void set_carga(QPixmap);
     void set_dimenciones(unsigned a, unsigned b);
     void SBloques(unsigned i);
+    void setbloque(unsigned x,unsigned y);
 
 private:
     QPixmap cargar,bloque;

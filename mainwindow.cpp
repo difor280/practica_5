@@ -1,6 +1,35 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
+void MainWindow::keyPressEvent(QKeyEvent *i)
+{
+    const int e=i->key();
+    if(e== Qt::Key_S)
+    {
+
+        prota->setY((prota->y())+10);
+        prota->movimiento(&abajo);
+    }
+    else if (e == Qt::Key_W)
+    {
+        prota->movimiento(&arriba);
+        prota->setY((prota->y())-10);
+    }
+    else if (e== Qt::Key_A)
+    {
+        prota->movimiento(&izquierda);
+        prota->setX((prota->x())-10);
+    }
+    else if (e== Qt::Key_D)
+    {
+        prota->movimiento(&derecha);
+
+        prota->setX((prota->x())+10);
+    }
+}
+
+
+
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -8,7 +37,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
     set_grafic();
     MemDinamic();
-
+    ProtaIn();
 
 }
 
@@ -17,6 +46,7 @@ MainWindow::~MainWindow()
     delete ui;
     delete esenas;
     delete block;
+    delete prota;
 }
 
 void MainWindow::set_grafic()
@@ -37,7 +67,7 @@ void MainWindow::MemDinamic()
     block->SBloques(9);
     block->setPos(0,0);
     esenas->addItem(block);
-    ubicacion matiz=ubicacion(fil,col) ;
+
     matiz.matriz();
 
     for (unsigned f=0;f<fil ;f++ )
@@ -53,5 +83,14 @@ void MainWindow::MemDinamic()
         }
     }
 }
+
+void MainWindow::ProtaIn()
+{
+    prota->set_dimenciones(tam,tam);
+    prota->SBloques(4);
+    prota->setPos(x,y);
+    esenas->addItem(prota);
+}
+
 
 
