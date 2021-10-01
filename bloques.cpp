@@ -10,10 +10,10 @@ void bloques::set_carga(QPixmap sprite)
     cargar=sprite;
 }
 
-void bloques::set_dimenciones(unsigned a, unsigned b)
+void bloques::set_dimenciones(unsigned y, unsigned x)
 {
-    alto=a;
-    ancho=b;
+    alto=y;
+    ancho=x;
 }
 
 void bloques::SBloques(unsigned i)

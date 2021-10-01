@@ -44,3 +44,7 @@ bool ubicacion::aleatorio()
     float x=p*(RAND_MAX+1)-1;
     return n<=x;
 }
+
+
+
+

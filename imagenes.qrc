@@ -2,5 +2,6 @@
     <qresource prefix="/new/prefix1">
         <file>sprites/bloques.png</file>
         <file>sprites/movimiento.png</file>
+        <file>sprites/bomba.png</file>
     </qresource>
 </RCC>

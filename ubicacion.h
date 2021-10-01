@@ -13,8 +13,10 @@ public:
     void matriz();
     unsigned mostras(unsigned f,unsigned c);
     bool aleatorio();
+    unsigned **ubicado;
+    bool coliciones(unsigned *x,unsigned *y);
 private:
-    unsigned fila,columna,**ubicado;
+    unsigned fila,columna;
     float p=0.45;
 };
 

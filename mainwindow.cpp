@@ -4,28 +4,45 @@
 void MainWindow::keyPressEvent(QKeyEvent *i)
 {
     const int e=i->key();
+    unsigned posy=  prota->y(),posx=prota->x();
     if(e== Qt::Key_S)
     {
+         posy=  posy+10;
+        if((matiz.ubicado[(posy-51)/tam][unsigned(prota->x())/tam]==8)and (matiz.ubicado[(posy-51)/tam][(posx+49)/tam]==8))
+            prota->setY(posy);
 
-        prota->setY((prota->y())+10);
         prota->movimiento(&abajo);
     }
     else if (e == Qt::Key_W)
-    {
+    {   posy=posy-10;
+        if((matiz.ubicado[(posy-100)/tam][unsigned(prota->x())/tam]==8) and (matiz.ubicado[(posy-100)/tam][unsigned(posx+49)/tam]==8))
+        prota->setY(posy);
         prota->movimiento(&arriba);
-        prota->setY((prota->y())-10);
     }
     else if (e== Qt::Key_A)
-    {
+    {   posx=posx-10;
+        if((matiz.ubicado[(posy-100)/tam][posx/tam]==8)and(matiz.ubicado[(posy-51)/tam][posx/tam]==8))
+            prota->setX(posx);
         prota->movimiento(&izquierda);
-        prota->setX((prota->x())-10);
+
     }
     else if (e== Qt::Key_D)
-    {
+    {   posx=posx+10;
+        if((matiz.ubicado[(posy-100)/tam][(posx+49)/tam]==8)and(matiz.ubicado[(posy-51)/tam][(posx+49)/tam]==8))
+            prota->setX(posx);
         prota->movimiento(&derecha);
-
-        prota->setX((prota->x())+10);
     }
+    else if(e== Qt::Key_P)
+    {
+        bombitaIn();
+        tmp=new QTimer;
+        connect(tmp,SIGNAL(timeout()),this,SLOT(setbomba()));
+        tmp->start(500);
+         //estado++;
+
+    }
+
+
 }
 
 
@@ -38,6 +55,7 @@ MainWindow::MainWindow(QWidget *parent)
     set_grafic();
     MemDinamic();
     ProtaIn();
+
 
 }
 
@@ -55,6 +73,7 @@ void MainWindow::set_grafic()
     esenas->setSceneRect(0,0,tam*col,tam*(fil+2));
     ui->graphicsView->setGeometry(0,0,tam*col+2,tam*(fil+2)+2);
     ui->graphicsView->setScene(esenas);
+
     setMaximumSize(tam*col+2,tam*(fil+3)+2);
     setMinimumSize(tam*col+2,tam*(fil+2)+2);
     setWindowTitle("Bomberman");
@@ -92,5 +111,25 @@ void MainWindow::ProtaIn()
     esenas->addItem(prota);
 }
 
+void MainWindow::setbomba()
+{
+    bombita->movimiento(&izquierda);
+}
+
+
+void MainWindow::bombitaIn()
+{
+    QPixmap *setbo= new QPixmap ;
+    setbo->load(":/new/prefix1/sprites/bomba.png");
+    bombita->set_carga(*setbo);
+    delete setbo;
+    bombita->set_dimenciones(tam,tam);
+    bombita->setPos(prota->x(),prota->y());
+    bombita->movimiento(&izquierda);
+    esenas->addItem(bombita);
+
+
+
+}
 
 
