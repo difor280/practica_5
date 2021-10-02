@@ -15,6 +15,7 @@ public:
     bool aleatorio();
     unsigned **ubicado;
     bool coliciones(unsigned *x,unsigned *y);
+    void modificacion(unsigned x, unsigned y,unsigned cambio);
 private:
     unsigned fila,columna;
     float p=0.45;

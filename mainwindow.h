@@ -9,8 +9,9 @@
 #include "ubicacion.h"
 #include "personaje.h"
 #include <QKeyEvent>
-#include "bomba.h"
-
+#include <QTimer>
+#include <explosion.h>
+#include "enemigo.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -28,7 +29,8 @@ class MainWindow : public QMainWindow
 
 public slots:
      void setbomba();
-
+      void exploto();
+      void setmalos();
 
 
 public:
@@ -38,7 +40,10 @@ public:
     void set_grafic();
     void MemDinamic();
     void ProtaIn();
-    void bombitaIn();
+    void bombitaIn(unsigned x,unsigned  y);
+    void preExplocion(unsigned x,unsigned y);
+    void setmalito();
+
 
 
 private:
@@ -49,9 +54,12 @@ private:
     personaje *prota=new personaje;
     unsigned x=tam,y=3*tam;
     int8_t arriba=9,abajo=3,izquierda=0,derecha=6;
-    QTimer *tmp ;
+    QTimer *tmp,*explo,*enemi ;
     personaje *bombita=new personaje;
-    unsigned short estado=4;
+    unsigned short estado=0,wm,sm,am,dm;
+    explosion *w=new explosion,*s=new explosion,*a =new explosion,*d=new explosion;
+    enemigo *malito=new enemigo;
+    char fila='W',columna='S';
 
 
 

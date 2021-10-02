@@ -10,7 +10,8 @@ CONFIG += c++11
 
 SOURCES += \
     bloques.cpp \
-    bomba.cpp \
+    enemigo.cpp \
+    explosion.cpp \
     main.cpp \
     mainwindow.cpp \
     personaje.cpp \
@@ -18,7 +19,8 @@ SOURCES += \
 
 HEADERS += \
     bloques.h \
-    bomba.h \
+    enemigo.h \
+    explosion.h \
     mainwindow.h \
     personaje.h \
     ubicacion.h

@@ -45,6 +45,12 @@ bool ubicacion::aleatorio()
     return n<=x;
 }
 
+void ubicacion::modificacion(unsigned x, unsigned y, unsigned cambio)
+{
+    ubicado[x][y]=cambio;
+}
+
+
 
 
 

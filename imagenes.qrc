@@ -3,5 +3,7 @@
         <file>sprites/bloques.png</file>
         <file>sprites/movimiento.png</file>
         <file>sprites/bomba.png</file>
+        <file>sprites/explocion.png</file>
+        <file>sprites/enemigo.png</file>
     </qresource>
 </RCC>
